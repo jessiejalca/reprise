@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import search
+from app.routers import songs
 
 app = FastAPI(title="Reprise")
 
@@ -8,4 +8,4 @@ def health_check():
     return {"status": "ok"}
 
 
-app.include_router(search.router)
+app.include_router(songs.router)
