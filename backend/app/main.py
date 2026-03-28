@@ -1,5 +1,8 @@
 from fastapi import FastAPI
 from app.routers import songs
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI(title="Reprise")
 
