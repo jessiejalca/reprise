@@ -8,9 +8,9 @@ def fetch_lyrics(track_id: int) -> list:
     
     # Get only the lyrics as a list from the track data object returned, but return an empty list if there aren't any lyrics at all
     lyrics = data["plainLyrics"]
+    
     if lyrics is None:
-        lyrics_list = []
-    else:
-        lyrics_list = data["plainLyrics"].split("\n")
-        
-    return lyrics_list
+        return []
+
+    lyrics_list = lyrics.split("\n")
+    return [line for line in lyrics_list if line.strip()]

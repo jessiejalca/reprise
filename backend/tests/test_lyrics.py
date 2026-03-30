@@ -32,6 +32,19 @@ def test_fetch_lyrics_returns_list():
         assert lyrics[1] == "À ceux qui n'en ont pas"
 
 
+# Empty strings from blank lines in the lyrics should be filtered out
+def test_fetch_lyrics_filters_empty_strings():
+    with patch("app.services.lyrics.requests.get") as mock_get:
+        # Change mock data so it would generate an empty string to test
+        mock_get.return_value.json.return_value = {**mock_lyrics, "plainLyrics": "À ceux qui n'en ont pas\n\nÀ ceux qui n'en ont pas"}
+        mock_get.return_value.status_code = 200
+
+        lyrics = fetch_lyrics(2)
+
+        assert len(lyrics) == 2
+        assert "" not in lyrics
+
+
 # If somehow an instrumental or any other track without lyrics slips through, handle it gracefully
 def test_fetch_lyrics_returns_empty_list_when_no_lyrics():
     with patch("app.services.lyrics.requests.get") as mock_get:
