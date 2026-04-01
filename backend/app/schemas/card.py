@@ -12,6 +12,6 @@ class Card(BaseModel):
     
 class CardRequest(BaseModel):
     original_lines: list[str]
-    translated_lines: list[TranslationLine]
+    translated_lines: list[TranslatedLine]
     selected_indices: list[int]
     metadata: TrackMetadata
