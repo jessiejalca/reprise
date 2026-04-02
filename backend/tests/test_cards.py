@@ -96,9 +96,9 @@ def test_build_cards_raises_error_for_out_of_range_index():
 # build_cards handles mismatched original v translated line lists gracefully
 def test_build_cards_raises_error_when_lines_mismatch():
     adj_request = mock_request.model_copy(update={"original_lines": [
-    "Et toi, Albert",
-    "Quand on trinque, tu ramasses les verres"
-]})
+        "Et toi, Albert",
+        "Quand on trinque, tu ramasses les verres"
+    ]})
     
     # Raise error when number of lines mismatch
     with pytest.raises(ValueError, match="same length"):
