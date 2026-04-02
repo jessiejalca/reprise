@@ -1,6 +1,7 @@
 import pytest
 from unittest.mock import patch, MagicMock
 from app.services.tracks import search_tracks
+from app.schemas.track import TrackResult
 
 mock_tracks = [
     {
@@ -49,14 +50,15 @@ def test_search_tracks_returns_list():
         
         # We should get a list, but "Instrumental Test" should get filtered, so we should only get 2 results
         assert isinstance(results, list)
+        assert isinstance(results[0], TrackResult)
         assert len(results) == 2
         
         # For the tracks left, we should only get the fields we care about; specifically these:
         first = results[0]
-        assert first["id"] == 1
-        assert first["title"] == "Alors on danse" # renamed from trackName
-        assert first["artist"] == "Stromae" # renamed from artistName
-        assert first["album"] == "Cheese" # renamed from albumName
+        assert first.id == 1
+        assert first.title == "Alors on danse" # renamed from trackName
+        assert first.artist == "Stromae" # renamed from artistName
+        assert first.album == "Cheese" # renamed from albumName
         # And not these:
         assert "duration" not in first
         assert "instrumental" not in first
@@ -73,7 +75,7 @@ def test_search_tracks_filters_instrumental():
         results = search_tracks("Stromae")
         
         # None of the results should have instrumental == True; check by making sure the track with id 3 is not present
-        result_ids = [r["id"] for r in results]
+        result_ids = [r.id for r in results]
         assert 3 not in result_ids
         
         
