@@ -1,11 +1,11 @@
-from pydantic import BaseModel
+from app.schemas.base import CamelModel
 
-class TrackMetadata(BaseModel):
+class TrackMetadata(CamelModel):
     song: str
     artist: str
     album: str
     
-class TrackResult(BaseModel):
+class TrackResult(CamelModel):
     id: int
     title: str
     artist: str

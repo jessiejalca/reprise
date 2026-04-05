@@ -1,8 +1,8 @@
-from pydantic import BaseModel
+from app.schemas.base import CamelModel
 from app.schemas.track import TrackMetadata
 from app.schemas.translation import TranslatedLine
 
-class Card(BaseModel):
+class Card(CamelModel):
     original: str
     translation: str
     song: str
@@ -10,7 +10,7 @@ class Card(BaseModel):
     album: str
     context: list[str]
     
-class CardRequest(BaseModel):
+class CardRequest(CamelModel):
     original_lines: list[str]
     translated_lines: list[TranslatedLine]
     selected_indices: list[int]

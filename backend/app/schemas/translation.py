@@ -1,9 +1,9 @@
-from pydantic import BaseModel
+from app.schemas.base import CamelModel
 
-class TranslationRequest(BaseModel):
+class TranslationRequest(CamelModel):
     lines: list[str]
     to_lang: str
     
-class TranslatedLine(BaseModel):
+class TranslatedLine(CamelModel):
     text: str
     original_lang: str
