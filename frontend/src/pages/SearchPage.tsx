@@ -1,8 +1,7 @@
+
 function SearchPage() {
     return (
-        <header>
-            <a className="logo">Reprise</a>
-        </header>
+        <h1>Search Page</h1>
     )
 }
 
