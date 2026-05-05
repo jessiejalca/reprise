@@ -2,7 +2,7 @@ import { IoSearch } from 'react-icons/io5';
 
 function Header() {
     return (
-        <header>
+        <header id='banner'>
             <a className="logo" href='/'>Reprise</a>
             <div className='search-input-wrapper'>
                 <IoSearch size={16} className='icon' />

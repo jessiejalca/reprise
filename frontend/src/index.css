@@ -38,22 +38,23 @@ body {
   font-family: 'Lexend', sans-serif;
   font-weight: 300;
   margin: 0;
-
-  h1, h2, .logo {
-    font-family: 'Instrument Serif', 'Times New Roman', serif;
-  }
 }
 
-header {
+header#banner {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px 20px;
   border-bottom: 1px solid var(--border);
+  background-color: var(--color-background);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
   a.logo {
     font-size: 1.5rem;
     font-style: italic;
+    font-family: 'Instrument Serif', 'Times New Roman', serif;
     color: var(--text);
     text-decoration: none;
   }
@@ -85,6 +86,57 @@ header {
       font-weight: 400;
       font-family: 'Lexend', sans-serif;
       flex: 1;
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 20px;
+
+  header {
+    display: flex;
+    flex-direction: column;
+    margin: 4rem 0;
+
+    .subtitle {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+  }
+
+  .blocks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 4rem;
+
+    div {
+      border: 2px solid var(--border);
+      background-color: var(--surface);
+      border-radius: 12px;
+      padding: 24px 18px;
+
+      .icon {
+        background-color: var(--accent);
+        border-radius: 8px;
+        padding: 4px;
+        color: var(--accent-soft);
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    .blocks {
+      grid-template-columns: auto;
+      gap: 14px;
     }
   }
 }
