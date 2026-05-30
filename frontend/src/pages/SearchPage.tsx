@@ -3,10 +3,10 @@ import { IoSearch, IoLanguage, IoDownload } from 'react-icons/io5';
 function SearchPage() {
     return (
         <main>
-            <header>
-                <h1>Master languages through your favorite music.</h1>
+            <section className="hero-heading" aria-labelledby="hero-heading">
+                <h1 id="hero-heading">Master languages through your favorite music.</h1>
                 <p className="subtitle">Translate the lyrics and turn them into Anki flashcards instantly.</p>
-            </header>
+            </section>
             <section className="blocks">
                 <div>
                     <IoSearch size={28} className='icon' />
