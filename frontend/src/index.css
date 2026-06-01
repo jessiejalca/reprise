@@ -97,7 +97,7 @@ main {
   text-align: center;
   padding: 3rem 20px;
 
-  .hero-heading {
+  .hero {
     display: flex;
     flex-direction: column;
     margin: 4rem 0;

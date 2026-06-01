@@ -1,9 +1,34 @@
 import { IoSearch, IoLanguage, IoDownload } from 'react-icons/io5';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { searchTracks } from '../services/songs';
+import type { TrackResult } from '../types/track';
 
 function SearchPage() {
+    const [searchParams] = useSearchParams()
+    const [tracks, setTracks] = useState<TrackResult[]>([])
+    const [loading, setLoading] = useState(false)
+
+    const q = searchParams.get("q")
+
+    useEffect(() => {
+        if (!q) return
+
+        const fetchResults = async () => {
+            setLoading(true)
+            const data = await searchTracks(q)
+            setTracks(data)
+            setLoading(false)
+        }
+
+        fetchResults()
+    }, [q])
+
+    console.log(tracks)
+
     return (
         <main>
-            <section className="hero-heading" aria-labelledby="hero-heading">
+            <section className="hero" aria-labelledby="hero-heading">
                 <h1 id="hero-heading">Master languages through your favorite music.</h1>
                 <p className="subtitle">Translate the lyrics and turn them into Anki flashcards instantly.</p>
             </section>

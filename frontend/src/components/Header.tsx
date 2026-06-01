@@ -5,8 +5,6 @@ import { useSearchParams } from 'react-router-dom';
 function Header() {
     const [searchParams, setSearchParams] = useSearchParams()
 
-    console.log(searchParams)
-
     const makeQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
         // Add the query to the search params for reading
         setSearchParams(`?q=${e.target.value}`)
