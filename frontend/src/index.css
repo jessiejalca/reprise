@@ -133,6 +133,42 @@ main {
     }
   }
 
+  .tracks-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 16px;
+
+    .track-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius:6px;
+      text-align: left;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      h2, p {
+        padding: 0;
+        margin: 0;
+      }
+
+      h2 {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
+
+      p:last-of-type {
+        color: var(--accent);
+        font-weight: 600;
+      }
+    }
+  }
+
   @media (max-width: 800px) {
     .blocks {
       grid-template-columns: auto;
