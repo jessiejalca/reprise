@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { searchTracks } from '../services/songs';
-import Hero from '../components/Hero';
-import TrackList from '../components/TrackList';
+import { Hero, Search, TrackList } from '../components';
 import type { TrackResult } from '../types/track';
 
 function SearchPage() {
@@ -29,7 +28,8 @@ function SearchPage() {
 
     return (
         <main>
-            {!q && <Hero />}
+            <Hero />
+            <Search />
             {q && loading && <p>Loading...</p>}
             {q && !loading && tracks.length > 0 && <TrackList tracks={tracks} />}
             {q && !loading && tracks.length === 0 && <p>No results found</p>}
