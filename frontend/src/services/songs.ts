@@ -3,8 +3,8 @@ import type { TrackResult } from "../types/track";
 import type { TranslatedLine } from "../types/translation";
 import { request } from "./api";
 
-const searchTracks = async (query: string): Promise<TrackResult[]> => {
-    return await request(`/songs/search?q=${encodeURIComponent(query)}`)
+const searchTracks = async (query: string, signal?: AbortSignal): Promise<TrackResult[]> => {
+    return await request(`/songs/search?q=${encodeURIComponent(query)}`, { signal })
 }
 
 const fetchLyrics = async (trackId: number): Promise<string[]> => {

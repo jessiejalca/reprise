@@ -10,19 +10,33 @@ function SearchPage() {
     const [loading, setLoading] = useState(false)
 
     const q = searchParams.get("q")
+    const filter = searchParams.get("filter") ?? "All"
 
     useEffect(() => {
         if (!q) return
 
+        const controller = new AbortController()
+
         const fetchResults = async () => {
             setLoading(true)
-            const data = await searchTracks(q)
-            setTracks(data)
-            setLoading(false)
+            try {
+                // TODO: pass `filter` through to searchTracks once the backend supports filtering by field
+                const data = await searchTracks(q, controller.signal)
+                setTracks(data)
+                setLoading(false)
+            } catch (error) {
+                // Stale request, cancelled by a newer keystroke — ignore it so it can't clobber state
+                if (error instanceof DOMException && error.name === 'AbortError') return
+                setLoading(false)
+                throw error
+            }
         }
 
         fetchResults()
-    }, [q])
+
+        // Cancel this request if `q` changes again (e.g. the next keystroke) before it resolves
+        return () => controller.abort()
+    }, [q, filter])
 
     console.log(tracks)
 

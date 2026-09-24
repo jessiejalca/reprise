@@ -23,6 +23,10 @@ export async function request(path: string, options?: RequestInit) {
         const result = await response.json()
         return result
     } catch (error) {
+        // A caller (e.g. a superseded search request) cancelled this on purpose; nothing to log
+        if (error instanceof DOMException && error.name === "AbortError") {
+            throw error
+        }
         console.error(error)
         throw error
     }
