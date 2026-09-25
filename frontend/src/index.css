@@ -10,6 +10,15 @@
   --color-ink-70: #5C5249;
   --color-placeholder: #B3A89B;
   --color-sleeve-fallback: #E3D5C4;
+  /* Sleeve gradient tints, for album art fallbacks */
+  --color-sleeve-saffron: #B39241;
+  --color-sleeve-teal: #3E6D6A;
+  --color-sleeve-cobalt: #4E628C;
+  --color-sleeve-plum: #704965;
+  --color-sleeve-forest: #4B6E51;
+  --color-sleeve-sky: #6D8DA5;
+  --color-sleeve-berry: #A15C73;
+  --color-sleeve-indigo: #635B84;
   /* Font variables */
   --font-serif: 'Newsreader', 'Times New Roman', serif;
   --font-sans: 'Public Sans', sans-serif;
