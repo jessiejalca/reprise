@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { searchTracks } from '../services/songs';
-import { EmptyResults, Hero, Search, TrackList } from '../components';
+import { EmptyResults, Hero, ResultsSummary, Search, TrackList } from '../components';
 import type { TrackResult } from '../types/track';
 import useDebouncedValue from '../hooks/useDebouncedValue';
 
@@ -48,8 +48,12 @@ function SearchPage() {
         <main>
             <Hero collapsed={Boolean(query)} />
             <Search />
-            {query && loading && <TrackList tracks={[]} loading />}
-            {query && !loading && tracks.length > 0 && <TrackList tracks={tracks} />}
+            {query && (loading || tracks.length > 0) && (
+                <>
+                    <ResultsSummary query={query} count={loading ? null : tracks.length} />
+                    <TrackList tracks={loading ? [] : tracks} loading={loading} />
+                </>
+            )}
             {query && !loading && tracks.length === 0 && <EmptyResults query={query} />}
         </main>
     )

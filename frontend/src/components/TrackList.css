@@ -6,7 +6,7 @@
   /* How far the record slides out on hover: into the gap, stopping just short of the next cover */
   --record-slide: calc(var(--track-gap) - 8px);
   padding: var(--layout-page-padding);
-  padding-top: 32px;
+  padding-top: 20px;
 
   .track-card {
     cursor: pointer;
