@@ -11,8 +11,8 @@
   --color-placeholder: #B3A89B;
   --color-sleeve-fallback: #E3D5C4;
   /* Font variables */
-  --font-display-title-lyric: 'Newsreader', 'Times New Roman', serif;
-  --font-interface-body: 'Public Sans', sans-serif;
+  --font-serif: 'Newsreader', 'Times New Roman', serif;
+  --font-sans: 'Public Sans', sans-serif;
   /* Layout variables */
   --layout-page-padding: 12px 30px;
 }
@@ -39,7 +39,7 @@ input[type="radio"] {
 body {
   background-color: var(--color-surface);
   color: var(--color-ink);
-  font-family: var(--font-interface-body);
+  font-family: var(--font-sans);
   font-weight: 400;
   /* padding: 20px 30px; */
   margin: 0;
@@ -47,7 +47,7 @@ body {
 
 /* Typography */
 .type-display, .type-title {
-  font-family: var(--font-display-title-lyric);
+  font-family: var(--font-serif);
   font-weight: 500;
   font-size: 1.8em;
   font-style: italic;
@@ -59,7 +59,7 @@ body {
 }
 
 .type-song {
-  font-family: var(--font-display-title-lyric);
+  font-family: var(--font-serif);
   font-weight: 500;
   font-style: italic;
   font-size: 1.3em;
@@ -67,19 +67,19 @@ body {
 }
 
 .type-body {
-  font-family: var(--font-interface-body);
+  font-family: var(--font-sans);
   font-weight: 400;
   font-size: 1em;
 }
 
 .type-control {
-  font-family: var(--font-interface-body);
+  font-family: var(--font-sans);
   font-weight: 600;
   font-size: 1em;
 }
 
 .type-label {
-  font-family: var(--font-interface-body);
+  font-family: var(--font-sans);
   font-weight: 600;
   font-size: 0.8em;
   letter-spacing: 0.12em;
