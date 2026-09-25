@@ -5,8 +5,8 @@ function TrackCard({ track }: {track: TrackResult}) {
         <div className="track-card">
             <img className="track-card-art" />
             <div className="track-card-info">
-                <h2 className="track-card-title">{track.title}</h2>
-                <p className="track-card-meta">{track.artist} • {track.album}</p>
+                <h2 className="track-card-title type-song">{track.title}</h2>
+                <p className="track-card-meta type-body">{track.artist} • {track.album}</p>
             </div>
         </div>
     )

@@ -23,15 +23,10 @@
 
   .track-card-title {
     margin: 12px 0 4px;
-    font-family: var(--font-display-title-lyric);
-    font-weight: 500;
-    font-size: 1.3em;
-    line-height: 1.2em;
   }
 
   .track-card-meta {
     margin: 4px 0;
-    font-size: 1em;
     color: var(--color-muted);
     line-height: 1.4em;
   }

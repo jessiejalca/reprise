@@ -5,7 +5,7 @@ import './Header.css';
 function Header() {
     return (
         <header className='banner'>
-            <Link to='/' className="logo">Reprise</Link>
+            <Link to='/' className="logo type-title">Reprise</Link>
             <p className='global-translate type-label'>Translate<RiArrowRightLine size={18} />English</p>
         </header>
     )

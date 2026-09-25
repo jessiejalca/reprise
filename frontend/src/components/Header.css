@@ -10,9 +10,6 @@
 
   .logo {
     font-size: 2rem;
-    font-style: italic;
-    font-family: var(--font-display-title-lyric);
-    font-weight: 500;
     color: var(--color-ink);
     text-decoration: none;
   }

@@ -58,15 +58,23 @@ body {
   margin: 0;
 }
 
-.type-lyric {
+.type-song {
   font-family: var(--font-display-title-lyric);
-  font-weight: 400;
-  font-size: 1.1em;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 1.3em;
+  line-height: 1.2em;
 }
 
 .type-body {
   font-family: var(--font-interface-body);
   font-weight: 400;
+  font-size: 1em;
+}
+
+.type-control {
+  font-family: var(--font-interface-body);
+  font-weight: 600;
   font-size: 1em;
 }
 

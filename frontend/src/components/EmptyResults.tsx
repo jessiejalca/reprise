@@ -15,7 +15,7 @@ function EmptyResults({ query }: { query: string }) {
             <p className='type-label'>No results</p>
             <h2 className='type-title'>Nothing matched “{query}”</h2>
             <p className='hint'>Check the spelling, try fewer words, or search by the artist's name instead.</p>
-            <button type='button' onClick={handleClear}>Clear search</button>
+            <button type='button' className='type-control' onClick={handleClear}>Clear search</button>
         </section>
     )
 }

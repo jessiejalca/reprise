@@ -25,7 +25,6 @@
     label {
       cursor: pointer;
       color: var(--color-muted);
-      font-weight: 600;
       padding: 6px 0;
     }
   

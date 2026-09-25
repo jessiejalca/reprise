@@ -35,7 +35,7 @@ function Search() {
             </div>
             <div className='search-filter'>
                 {filters.map((f) => (
-                    <label key={f}>
+                    <label key={f} className='type-control'>
                         <input
                             type='radio'
                             name='filters'
