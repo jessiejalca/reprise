@@ -1,11 +1,32 @@
 .hero {
+  /* Animating the single grid row from 1fr to 0fr collapses the hero to its content's height, then to nothing */
+  display: grid;
+  grid-template-rows: 1fr;
   text-align: center;
   padding: var(--layout-page-padding);
   padding-block: 5em;
   background-color: var(--color-paper);
+  transition: grid-template-rows 0.4s ease, padding-block 0.4s ease, opacity 0.25s ease;
+
+  .hero-content {
+    min-height: 0;
+    overflow: hidden;
+  }
 
   .subtitle {
     font-size: 1.2em;
     color: var(--color-muted);
+  }
+}
+
+.hero.collapsed {
+  grid-template-rows: 0fr;
+  padding-block: 0;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    transition: none;
   }
 }
