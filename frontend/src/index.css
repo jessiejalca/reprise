@@ -162,6 +162,49 @@ div#tracks-container {
       line-height: 1.4em;
     }
   }
+
+  div.track-card.skeleton {
+    cursor: default;
+
+    .skeleton-art,
+    .skeleton-line {
+      display: block;
+      background: linear-gradient(90deg,
+        var(--color-sleeve-fallback) 25%,
+        var(--color-paper) 50%,
+        var(--color-sleeve-fallback) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s ease-in-out infinite;
+    }
+
+    .skeleton-art {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+    }
+
+    .skeleton-line.title {
+      height: 1.3em;
+      width: 70%;
+      margin: 12px 0 8px;
+    }
+
+    .skeleton-line.meta {
+      height: 1em;
+      width: 50%;
+    }
+  }
+}
+
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  div.track-card.skeleton .skeleton-art,
+  div.track-card.skeleton .skeleton-line {
+    animation: none;
+  }
 }
 
 @media screen and (min-width: 900px) {
@@ -199,6 +242,22 @@ div#tracks-container {
       img {
         background-color: var(--color-muted);
       }
+    }
+
+    div.track-card.skeleton {
+      .skeleton-art {
+        max-width: 150px;
+        flex-shrink: 0;
+      }
+
+      > div {
+        flex: 1;
+      }
+    }
+
+    div.track-card.skeleton:hover {
+      background-color: transparent;
+      border-left-color: var(--color-surface);
     }
   }
 }

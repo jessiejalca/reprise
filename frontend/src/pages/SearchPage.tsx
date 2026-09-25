@@ -6,11 +6,14 @@ import type { TrackResult } from '../types/track';
 
 function SearchPage() {
     const [searchParams] = useSearchParams()
-    const [tracks, setTracks] = useState<TrackResult[]>([])
-    const [loading, setLoading] = useState(false)
+    // Remember which query the results belong to, so a new query counts as loading from its very first render
+    const [results, setResults] = useState<{ query: string, tracks: TrackResult[] }>({ query: '', tracks: [] })
 
     const q = searchParams.get("q")
     const filter = searchParams.get("filter") ?? "All"
+
+    const loading = Boolean(q) && results.query !== q
+    const tracks = results.tracks
 
     useEffect(() => {
         if (!q) return
@@ -18,16 +21,14 @@ function SearchPage() {
         const controller = new AbortController()
 
         const fetchResults = async () => {
-            setLoading(true)
             try {
                 // TODO: pass `filter` through to searchTracks once the backend supports filtering by field
                 const data = await searchTracks(q, controller.signal)
-                setTracks(data)
-                setLoading(false)
+                setResults({ query: q, tracks: data })
             } catch (error) {
                 // Stale request, cancelled by a newer keystroke — ignore it so it can't clobber state
                 if (error instanceof DOMException && error.name === 'AbortError') return
-                setLoading(false)
+                setResults({ query: q, tracks: [] })
                 throw error
             }
         }
@@ -38,13 +39,11 @@ function SearchPage() {
         return () => controller.abort()
     }, [q, filter])
 
-    console.log(tracks)
-
     return (
         <main>
             <Hero />
             <Search />
-            {q && loading && <p>Loading...</p>}
+            {q && loading && <TrackList tracks={[]} loading />}
             {q && !loading && tracks.length > 0 && <TrackList tracks={tracks} />}
             {q && !loading && tracks.length === 0 && <p>No results found</p>}
         </main>
