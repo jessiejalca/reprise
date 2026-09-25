@@ -1,0 +1,11 @@
+.hero {
+  text-align: center;
+  padding: var(--layout-page-padding);
+  padding-block: 5em;
+  background-color: var(--color-paper);
+
+  .subtitle {
+    font-size: 1.2em;
+    color: var(--color-muted);
+  }
+}

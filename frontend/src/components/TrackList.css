@@ -1,0 +1,129 @@
+.track-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: var(--layout-page-padding);
+  padding-top: 32px;
+
+  .track-card {
+    cursor: pointer;
+  }
+
+  .track-card-art {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background-color: var(--color-sleeve-fallback);
+  }
+
+  .track-card-info {
+    margin-bottom: 18px;
+  }
+
+  .track-card-title {
+    margin: 12px 0 4px;
+    font-family: var(--font-display-title-lyric);
+    font-weight: 500;
+    font-size: 1.3em;
+    line-height: 1.2em;
+  }
+
+  .track-card-meta {
+    margin: 4px 0;
+    font-size: 1em;
+    color: var(--color-muted);
+    line-height: 1.4em;
+  }
+
+  /* Loading placeholders, shaped like the real card */
+  .track-card.skeleton {
+    cursor: default;
+  }
+
+  .skeleton-block {
+    display: block;
+    background: linear-gradient(90deg,
+      var(--color-sleeve-fallback) 25%,
+      var(--color-paper) 50%,
+      var(--color-sleeve-fallback) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s ease-in-out infinite;
+  }
+
+  .skeleton-title {
+    height: 1.3em;
+    width: 70%;
+    margin: 12px 0 8px;
+  }
+
+  .skeleton-meta {
+    height: 1em;
+    width: 50%;
+  }
+}
+
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track-list .skeleton-block {
+    animation: none;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .track-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .track-list {
+    grid-template-columns: 1fr;
+    gap: 0;
+
+    .track-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      border-block: 1px solid var(--color-rule);
+      border-left: 3px solid var(--color-surface);
+    }
+
+    .track-card:hover {
+      background-color: var(--color-terracota-wash);
+      border-left: 3px solid var(--color-terracota);
+
+      .track-card-art {
+        background-color: var(--color-muted);
+      }
+    }
+
+    .track-card-art {
+      max-width: 150px;
+    }
+
+    .track-card-info {
+      margin-left: 32px;
+    }
+
+    .track-card.skeleton {
+      .track-card-art {
+        flex-shrink: 0;
+      }
+
+      .track-card-info {
+        flex: 1;
+      }
+    }
+
+    .track-card.skeleton:hover {
+      background-color: transparent;
+      border-left-color: var(--color-surface);
+    }
+  }
+}

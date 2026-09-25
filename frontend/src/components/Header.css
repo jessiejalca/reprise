@@ -1,0 +1,27 @@
+.banner {
+  display: flex;
+  padding: var(--layout-page-padding);
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-paper);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  .logo {
+    font-size: 2rem;
+    font-style: italic;
+    font-family: var(--font-display-title-lyric);
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .global-translate {
+    display: flex;
+    gap: 8px;
+    padding: 4px 0;
+    border-bottom: 1.5px var(--color-muted) solid;
+    align-items: center;
+  }
+}

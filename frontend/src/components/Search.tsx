@@ -1,5 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 import { RiSearchLine } from 'react-icons/ri';
+import './Search.css';
 
 function Search() {
     const filters = ['All', 'Title', 'Artist', 'Album']
@@ -21,8 +22,8 @@ function Search() {
     }
 
     return (
-        <section id='search'>
-            <div id="searchbar">
+        <section className='search'>
+            <div className="searchbar">
                 <RiSearchLine size={24} color="#8A7D70" />
                 <input
                     type="text"
@@ -32,7 +33,7 @@ function Search() {
                     onChange={handleQueryChange}
                 />
             </div>
-            <div id='search-filter'>
+            <div className='search-filter'>
                 {filters.map((f) => (
                     <label key={f}>
                         <input

@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import { RiArrowRightLine } from "react-icons/ri";
+import './Header.css';
 
 function Header() {
     return (
-        <header id='banner'>
+        <header className='banner'>
             <Link to='/' className="logo">Reprise</Link>
             <p className='global-translate type-label'>Translate<RiArrowRightLine size={18} />English</p>
         </header>

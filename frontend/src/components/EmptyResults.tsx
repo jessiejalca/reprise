@@ -1,4 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
+import './EmptyResults.css';
 
 function EmptyResults({ query }: { query: string }) {
     const [searchParams, setSearchParams] = useSearchParams()
@@ -10,7 +11,7 @@ function EmptyResults({ query }: { query: string }) {
     }
 
     return (
-        <section id='empty-results' role='status'>
+        <section className='empty-results' role='status'>
             <p className='type-label'>No results</p>
             <h2 className='type-title'>Nothing matched “{query}”</h2>
             <p className='hint'>Check the spelling, try fewer words, or search by the artist's name instead.</p>
