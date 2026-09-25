@@ -3,7 +3,7 @@ import TrackCard from './TrackCard';
 
 function TrackList({ tracks }: { tracks: TrackResult[] }) {
     return (
-        <div className='tracks-container'>
+        <div id='tracks-container'>
             {tracks.map((track) => (
                 <TrackCard key={track.id} track={track} />
             ))}
