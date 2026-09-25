@@ -90,6 +90,7 @@ section.hero {
 section#search {
   padding: var(--layout-page-padding);
   background-color: var(--color-paper);
+  border-bottom: 1px solid var(--color-rule);
 
   div#searchbar {
     display: flex;
@@ -131,7 +132,6 @@ div#tracks-container {
   gap: 18px;
   padding: var(--layout-page-padding);
   padding-top: 32px;
-  border-top: 1px solid var(--color-rule);
 
   div.track-card {
     cursor: pointer;
@@ -151,8 +151,7 @@ div#tracks-container {
       margin: 12px 0 4px;
       font-family: var(--font-display-title-lyric);
       font-weight: 500;
-      font-size: 1.4em;
-      font-style: italic;
+      font-size: 1.3em;
       line-height: 1.2em;
     }
 
