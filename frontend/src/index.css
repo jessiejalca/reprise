@@ -195,6 +195,48 @@ div#tracks-container {
   }
 }
 
+section#empty-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--layout-page-padding);
+  padding-block: 64px 96px;
+  color: var(--color-muted);
+
+  .type-label {
+    margin: 0 0 16px;
+  }
+
+  h2 {
+    margin: 0;
+    max-width: 100%;
+    color: var(--color-ink);
+    overflow-wrap: anywhere;
+  }
+
+  .hint {
+    max-width: 36ch;
+    margin: 12px 0 24px;
+    line-height: 1.5em;
+  }
+
+  button {
+    font: inherit;
+    font-weight: 600;
+    color: var(--color-ink);
+    background: none;
+    border: none;
+    border-bottom: 2px solid var(--color-terracota);
+    padding: 6px 0;
+    cursor: pointer;
+  }
+
+  button:hover {
+    color: var(--color-terracota);
+  }
+}
+
 @keyframes shimmer {
   from { background-position: 200% 0; }
   to { background-position: -200% 0; }

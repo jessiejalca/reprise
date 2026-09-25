@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { searchTracks } from '../services/songs';
-import { Hero, Search, TrackList } from '../components';
+import { EmptyResults, Hero, Search, TrackList } from '../components';
 import type { TrackResult } from '../types/track';
 
 function SearchPage() {
@@ -45,7 +45,7 @@ function SearchPage() {
             <Search />
             {q && loading && <TrackList tracks={[]} loading />}
             {q && !loading && tracks.length > 0 && <TrackList tracks={tracks} />}
-            {q && !loading && tracks.length === 0 && <p>No results found</p>}
+            {q && !loading && tracks.length === 0 && <EmptyResults query={q} />}
         </main>
     )
 }
